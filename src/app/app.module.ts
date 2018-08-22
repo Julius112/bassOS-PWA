@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { OnsenModule } from 'ngx-onsenui';
+import {
+  OnsenModule,
+  NgModule,
+  OnsSwitch
+} from 'ngx-onsenui';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 

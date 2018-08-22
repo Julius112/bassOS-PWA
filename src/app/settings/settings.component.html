@@ -3,6 +3,56 @@
     Einstellungen
   </div>
 </ons-toolbar>
-<p>
-  settings works!
-</p>
+	<ons-list>
+		<ons-list-header>
+			Schalter
+		</ons-list-header>
+		<ons-list-item modifier="longdivider" *ngFor="let switch of switch_array">
+			<div class="left">
+				{{ switch.name }}
+			</div>
+			<label class="right">
+				<ons-switch my-touchend="switch_change(switch)" [value]="switch.state" [disabled]="!switch.active"></ons-switch>
+			</label>
+		</ons-list-item>
+
+<ons-list *ngFor="let section of sections">
+	<ons-list-header>
+		{{ section.name }}
+	</ons-list-header>
+	<ons-list-item *ngFor="let setting of section.settings">
+		<div class="left">
+			<ons-icon [icon]="setting.icon" class="list-item__icon"></ons-icon>
+		</div>
+		<div class="center">
+			<div *ngIf="setting.subtitle == undefined">{{ setting.title }}</div>
+			<span *ngIf="setting.subtitle != undefined" class="list-item__title">{{ setting.title }}</span>
+			<span *ngIf="setting.subtitle != undefined" class="list-item__subtitle">{{ setting.subtitle }}</span>
+		</div>
+		<label class="right">
+			<ons-switch [value]="setting.state" my-touchend="settings_change(setting)" [disabled]="!setting.active"></ons-switch>
+		</label>
+	</ons-list-item>
+</ons-list>
+
+<ons-list>
+	<ons-list-header>
+		System
+	</ons-list-header>
+	<ons-list-item>
+		<div class="center">
+			Ausschalten
+		</div>
+		<label class="right">
+			<ons-button (click)="halt()">Ausschalten</ons-button>
+		</label>
+	</ons-list-item>
+	<ons-list-item>
+		<div class="center">
+			Neustarten
+		</div>
+		<label class="right">
+			<ons-button (click)="reboot()">Neustart</ons-button>
+		</label>
+	</ons-list-item>
+</ons-list>
