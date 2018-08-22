@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ons-page',
+  selector: 'ons-page[library]',
   templateUrl: './library.component.html',
   styleUrls: ['./library.component.css']
 })
